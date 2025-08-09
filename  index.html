@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponte Humana - Início</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="js/firebase.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ponte Humana</h1>
+            <p>Junte-se a amigos e atravesse o abismo cooperando!</p>
+        </header>
+        
+        <div class="auth-container">
+            <div id="login-form">
+                <h2>Entrar</h2>
+                <input type="text" id="username" placeholder="Seu nome" required>
+                <button id="login-btn">Jogar</button>
+            </div>
+        </div>
+        
+        <div class="game-info">
+            <h3>Como Jogar:</h3>
+            <ul>
+                <li>➡️ Mova-se com as setas ou botões</li>
+                <li>🔄 Vire uma ponte para ajudar os outros</li>
+                <li>😀 Use emojis para se comunicar</li>
+                <li>🏆 Atravesse o abismo cooperando</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

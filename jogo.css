@@ -1,0 +1,255 @@
+/* Estilos base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: white;
+    overflow: hidden;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1e1e1e;
+    border-bottom: 2px solid #333;
+}
+
+.player-info, .level-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.health-bar, .xp-bar {
+    width: 100px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.health-fill {
+    height: 100%;
+    width: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s;
+}
+
+.xp-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #2196F3;
+    transition: width 0.3s;
+}
+
+/* Área do jogo */
+.game-area {
+    flex-grow: 1;
+    position: relative;
+    background-image: url('../assets/backgrounds/abismo.jpg');
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Personagens e elementos do jogo */
+.player {
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-image: url('../assets/sprites/player.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: left 0.2s, top 0.2s;
+    z-index: 10;
+}
+
+.player.bridge {
+    width: 80px;
+    height: 50px;
+    background-image: url('../assets/sprites/bridge.png');
+    transform: rotate(90deg);
+    z-index: 5;
+}
+
+.player.me {
+    filter: drop-shadow(0 0 5px yellow);
+}
+
+.powerup {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 8;
+    animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Controles */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    gap: 10px;
+    background-color: #1e1e1e;
+}
+
+.control-btn {
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.control-btn:hover {
+    background-color: #444;
+}
+
+#bridge-btn {
+    background-color: #8BC34A;
+}
+
+#bridge-btn:hover {
+    background-color: #7CB342;
+}
+
+/* Power-ups */
+.powerups-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 200px;
+}
+
+.powerups-container h3 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+
+.powerup-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.powerup-icon {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+}
+
+/* Emoji picker */
+.emoji-picker {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    max-width: 240px;
+    z-index: 100;
+    display: none;
+}
+
+.emoji-picker.show {
+    display: grid;
+}
+
+.emoji {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.emoji:hover {
+    background-color: #444;
+}
+
+/* Modal de fim de jogo */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+}
+
+#game-result {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#game-stats {
+    margin-bottom: 20px;
+}
+
+#return-btn {
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .game-controls {
+        flex-wrap: wrap;
+    }
+    
+    .control-btn {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    
+    .powerups-container {
+        bottom: 150px;
+    }
+}

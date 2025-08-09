@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponte Humana - Jogo</title>
+    <link rel="stylesheet" href="css/jogo.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="js/firebase.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="player-info">
+                <span id="player-name"></span>
+                <div class="health-bar">
+                    <div id="health-fill" class="health-fill"></div>
+                </div>
+            </div>
+            <div class="level-info">
+                Nível <span id="level">1</span>
+                <div class="xp-bar">
+                    <div id="xp-fill" class="xp-fill"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="game-area" class="game-area">
+            <!-- Elementos do jogo serão renderizados aqui -->
+        </div>
+        
+        <div class="game-controls">
+            <button id="move-left-btn" class="control-btn">⬅️</button>
+            <button id="bridge-btn" class="control-btn">Virar Ponte</button>
+            <button id="move-right-btn" class="control-btn">➡️</button>
+            <button id="emoji-btn" class="control-btn">😀</button>
+        </div>
+        
+        <div class="powerups-container">
+            <h3>Power-ups</h3>
+            <div id="powerups-list">
+                <!-- Power-ups serão mostrados aqui -->
+            </div>
+        </div>
+    </div>
+    
+    <div id="emoji-picker" class="emoji-picker">
+        <!-- Emojis serão carregados dinamicamente -->
+    </div>
+    
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="game-result"></h2>
+            <p id="game-stats"></p>
+            <button id="return-btn">Voltar ao Lobby</button>
+        </div>
+    </div>
+    
+    <audio id="walk-sound" src="assets/sounds/walk.mp3" preload="auto"></audio>
+    <audio id="bridge-sound" src="assets/sounds/bridge.mp3" preload="auto"></audio>
+    <audio id="win-sound" src="assets/sounds/win.mp3" preload="auto"></audio>
+    <audio id="powerup-sound" src="assets/sounds/powerup.mp3" preload="auto"></audio>
+    
+    <script src="js/jogo.js"></script>
+</body>
+</html>
